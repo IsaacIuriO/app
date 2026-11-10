@@ -25,6 +25,7 @@ app.get('/', (req, res) => {
 });
 
 app.post('/categoria/criar', async (req, res) => {
+    
     const { nome, descricao } = req.body;
 
     const cmd = `INSERT INTO categoria (nome, descricao) VALUES (?, ?);`;
@@ -32,7 +33,22 @@ app.post('/categoria/criar', async (req, res) => {
 
     if(sql[0].affectedRows == 0)
     {
-        console.log('Erro ao criar categoria');
+
+    }
+
+    res.redirect('/categoria/lista');
+});
+
+app.post('/categoria/editar/:id', async (req, res) => {
+
+    const { id, nome, descricao } = req.body;
+
+    const cmd = `UPDATE categoria SET nome = ?, descricao = ? WHERE id = ?;`;
+    const sql = conn.query(cmd, [nome, descricao, id]);
+
+    if(sql[0].affectedRows == 0)
+    {
+
     }
 
     res.redirect('/categoria/lista');
@@ -42,7 +58,14 @@ app.get('/categoria/criar', (req, res) => {
     res.render('criar.ejs');
 });
 
-app.get('/categoria/editar', (req, res) => {
+app.get('/categoria/editar:id', async (req, res) => {
+    
+    const id = req.params.id;
+    const cmd = `SELECT * FROM usuario WHERE id = ?;`;
+    const sql = await conn.query(cmd, [id]);
+
+    const dado = sql[0];
+
     res.render('editar.ejs');
 });
 

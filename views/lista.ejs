@@ -13,6 +13,7 @@
             <tr>
                 <th>Nome</th>
                 <th>Descrição</th>
+                <th>Ações</th>
             </tr>
         </thead>
         <tbody>
@@ -20,6 +21,7 @@
                 <tr>
                     <td><%= dado.nome %></td>
                     <td><%= dado.descricao %></td>
+                    <td> <a href="/categoria/editar/<%= dado.id %>">Editar</a> </td>
                 </tr>
             <% } %>
         </tbody>
