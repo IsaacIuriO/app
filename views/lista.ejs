@@ -21,7 +21,8 @@
                 <tr>
                     <td><%= dado.nome %></td>
                     <td><%= dado.descricao %></td>
-                    <td> <a href="/categoria/editar/<%= dado.id %>">Editar</a> </td>
+                    <td> <a href="/categoria/editar/<%= dado.id_categoria %>">Editar</a> </td>
+                    <td> <a href="/categoria/apagar/<%= dado.id_categoria %>">Deletar</a> </td>
                 </tr>
             <% } %>
         </tbody>

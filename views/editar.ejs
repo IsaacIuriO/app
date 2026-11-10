@@ -6,17 +6,14 @@
     <title>Editar Categoria</title>
 </head>
 <body>
+    <h1>Editar Categoria</h1>
     <form action="/categoria/editar" method="POST">
-
-        <input type="hidden" name="id" id="id" value="<%= categoria.id %>">
-
+        <input type="hidden" name="id" id="id" value="<%= dado.id_categoria %>">
         <label for="nome">Nome</label>
-        <input type="text" name="nome" id="nome" value="<%= categoria.nome %>">
-
+        <input type="text" name="nome" id="nome" value="<%= dado.nome %>">
         <label for="descricao">Descrição</label>
-        <input type="text" name="descricao" id="descricao" value="<%= categoria.descricao %>">
-
-        <button>Enviar</button>
+        <input type="text" name="descricao" id="descricao" value="<%= dado.descricao %>">
+        <button>Atualizar</button>
     </form>
 </body>
 </html>
